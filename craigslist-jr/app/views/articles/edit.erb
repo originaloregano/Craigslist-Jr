@@ -1,0 +1,23 @@
+<h1>Edit dem Articles</h1>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+  <%= error %>
+  <% end %>
+<% end %>
+
+<form action="/categories/<%= @article.category_id %>/articles/<%= @article.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label for="title_input">Title:</label><br>
+  <input id="title_input" type="text" name="article[title]" value="<%= @article.try(:title) %>"><br><br>
+  <label for="body_input">Body:</label><br>
+  <input id="body_input" type="text" name="article[body]" value="<%= @article.try(:body) %>"><br><br>
+  <label for="email_input">Author Email:</label><br>
+  <input id="email_input" type="text" name="article[email]" value="<%= @article.try(:email) %>"><br><br>
+  <label for="price_input">Cost:</label><br>
+  <input id="price_input" type="price" name="article[price]" value="<%= @article.try(:price) %>"><br><br>
+  <input type="submit" value="Submit Article">
+</form><br>
+
+<a href="/categories">Back to Categories</A><br>
+<a href="/categories/<%= @article.category_id %>">Back to Articles</a>

@@ -1,0 +1,10 @@
+<h1><%= @category.name %> Articles</h1>
+
+<ul>
+<% @articles.each do |article| %>
+  <li><a href="/categories/<%= @category.id %>/articles/<%= article.id %>"><%= article.title %></a>- $<%= article.price %></li>
+<% end %>
+</ul>
+
+<a href="/categories">Back to Categories</A><br>
+<a href="/categories/<%= @category.id %>/articles/new">Add new Article</a>

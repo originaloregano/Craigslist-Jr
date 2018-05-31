@@ -1,0 +1,20 @@
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+<h5><%= @article.email %></h5>
+
+<input type="text" name="key" value="http://localhost:9393/categories/<%= @article.category_id %>/articles/<%= @article.id %>/edit?secret=<%= @article.try(:key) %>"><br>
+
+
+<a href="/categories/<%= @article.category_id %>/articles/<%= @article.id %>/edit">Edit Article</a><br><br>
+
+<form action="/categories/<%= @article.category_id %>/articles/<%= @article.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Article">
+</form><br>
+
+
+<a href="/categories">Back to Categories</A><br>
+<a href="/categories/<%= @article.category_id %>">Back to Articles</a>
+
+

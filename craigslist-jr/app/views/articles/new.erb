@@ -1,0 +1,22 @@
+<H1>Make a new article</H1>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+  <%= error %>
+  <% end %>
+<% end %>
+
+<form method="post" action="/categories/<%= @category.id %>/articles">
+	<label for="title_input">Title:</label><br>
+  <input id="title_input" type="text" name="article[title]" placeholder="This is a title"><br><br>
+  <label for="body_input">Body:</label><br>
+  <input id="body_input" type="text" name="article[body]" placeholder="ex: blah blah blah"><br><br>
+  <label for="email_input">Author's Email:</label><br>
+  <input id="email_input" type="text" name="article[email]" placeholder="ex: author@email.com"><br><br>
+  <label for="price_input">Cost:</label><br>
+  <input id="price_input" type="price" name="article[price]" placeholder="ex: 4.99"><br><br>
+  <input type="submit" value="Submit Article">
+</form><br>
+
+<a href="/categories">Back to Categories</A><br>
+<a href="/categories/<%= @category.id %>/articles"">Back to Articles</a>
